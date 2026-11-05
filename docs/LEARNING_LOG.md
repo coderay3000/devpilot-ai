@@ -25,3 +25,34 @@
 
 ### Next task
 - Phase 1: write the requirements document (MVP scope, non-goals, 5 example user questions)
+
+
+## Session 2 – 2026-11-05 – Phase 1: Requirements
+
+### Concepts learned
+- Requirements document: scope, non-goals, constraints, acceptance criteria
+- Non-goal vs acceptance criterion
+- Keeping a requirements doc short and MVP-focused
+
+### Files implemented
+- `docs/REQUIREMENTS.md`
+
+### What I implemented
+- Reviewed the requirements draft, asked for a shorter version, accepted it unchanged
+- Committed and pushed it to `main`
+
+### What I understood / did not understand
+- Understood: requirements docs work is to fix the scope
+- Not clear yet: ...
+
+### Bugs encountered / fixed
+- Pushed before committing `REQUIREMENTS.md`, so the file was not on GitHub; fixed by committing and pushing again
+
+### Tests performed
+- `git status` and `git log --oneline` to confirm commit and push state
+
+### Remaining problems
+- None known
+
+### Next task
+- Phase 2, Day 1: configuration (settings loaded from `.env`)
