@@ -42,8 +42,11 @@
 - Committed and pushed it to `main`
 
 ### What I understood / did not understand
-- Understood: requirements docs work is to fix the scope
-- Not clear yet: ...
+- Understood: the requirements doc fixes the project scope; the config
+  reads `.env`; field names are not case-sensitive; real environment
+  variables override `.env`; `BaseSettings` checks types but not whether
+  a value is valid (for example `LOG_LEVEL=banana` is accepted).
+- Not clear yet: none
 
 ### Bugs encountered / fixed
 - Pushed before committing `REQUIREMENTS.md`, so the file was not on GitHub; fixed by committing and pushing again
