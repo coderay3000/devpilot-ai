@@ -95,3 +95,37 @@
 
 ### Next task
 - `docs/PROJECT_GUIDE.md` first version
+
+
+## Session 4 – 2026-11-06 – Project guide and HTTP basics
+
+### Concepts learned
+- HTTP request and response; methods and status code families
+- GitHub unauthenticated rate limit (60 requests/hour per IP)
+- Rate-limit headers; Unix timestamp
+- Failed requests (404) also consume rate limit
+- `curl.exe -I` to inspect headers
+
+### Files implemented
+- `docs/PROJECT_GUIDE.md` (first version, drafted by Claude, reviewed by me)
+
+### What I implemented
+- Reviewed, saved, committed, and pushed the project guide
+- Ran `curl.exe -I` against an existing and a missing repository
+
+### What I understood / did not understand
+- Understood: the URL must be validated locally before calling the API, because failed requests also use up the rate limit (60/hour without a token); we fetch only relevant files, not the whole repository, for the same reason.
+- Not clear yet:  
+
+### Bugs encountered / fixed
+- None
+
+### Tests performed
+- Existing repo returned `200 OK`; missing repo returned `404 Not Found`
+- `X-RateLimit-Remaining` went from 58 to 57 across the two calls
+
+### Remaining problems
+- None known
+
+### Next task
+- Phase 3 design: GitHub URL parsing, `SecretStr`, `httpx`
