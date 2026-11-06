@@ -59,3 +59,39 @@
 
 ### Next task
 - Phase 2, Day 1: configuration (settings loaded from `.env`)
+
+
+## Session 3 – 2026-11-06 – Phase 2: Logging
+
+### Concepts learned
+- Log levels, numeric severity and threshold filtering
+- `logging.basicConfig` (`level`, `format`) and format placeholders
+- Keyword arguments and quoted strings
+- `Literal` to restrict a setting to allowed values
+- Two validation layers: Pydantic (config) and `logging` (setup)
+
+### Files implemented
+- `app/core/logging_config.py`
+- `app/core/config.py` (updated: `log_level` restricted with `Literal`)
+
+### What I implemented
+- `setup_logging(level)` that configures the root logger
+- Restricted `log_level` to the five allowed level names
+
+### What I understood / did not understand
+- Understood: `setup_logging` configures how logging behaves (level and format) but does not produce logs itself; `basicConfig` sets up the root logger once and named loggers inherit from it; logging has no relation with config until we pass `settings.log_level` (an attribute, no brackets) to `setup_logging(...)`.
+- Not clear yet: none
+
+### Bugs encountered / fixed
+- Wrote `basicConfig(level=, format=%(asctime)s)`: missing value and unquoted string; fixed with a value and quotes
+
+### Tests performed
+- `setup_logging('INFO')` showed `info`, hid `debug`
+- `setup_logging('banana')` raised `ValueError` from the `logging` module
+- Not tested: `LOG_LEVEL=banana` and lowercase `info` in `.env`
+
+### Remaining problems
+- `setup_logging` is not called anywhere yet (needs `main.py`)
+
+### Next task
+- `docs/PROJECT_GUIDE.md` first version
