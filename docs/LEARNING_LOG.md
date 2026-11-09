@@ -129,3 +129,41 @@
 
 ### Next task
 - Phase 3 design: GitHub URL parsing, `SecretStr`, `httpx`
+
+
+## Session 5 – 2026-11-09 – Phase 3: GitHub URL parser
+
+### Concepts learned
+- URL anatomy and `urllib.parse.urlparse`
+- Exact hostname matching (not `in` / `startswith`) and why
+- Custom exception class
+- `re.fullmatch`, character sets, raw strings
+- `str.removesuffix` vs `rstrip`
+- Validation layers: allowed characters vs allowed values (`.` and `..`)
+- Function vs class for stateless logic
+
+### Files implemented
+- `app/github/url_parser.py`, `app/github/__init__.py`
+
+### What I implemented
+- `parse_github_url(url) -> (owner, repo)` with `InvalidGitHubURLError`
+- Decisions: `http` and `https` allowed; URLs without a scheme rejected
+
+### What I understood / did not understand
+- Understood: scheme ,hostname ,path,how to parse the url and how to validate it
+- Not clear yet: ..
+
+### Bugs encountered / fixed
+- Wrote a class header with function parameters (`SyntaxError`); fixed by using `def`
+- Used `parsed.schema` instead of `parsed.scheme`
+- `https://github.com/a/..` was accepted in the first test run (the regex allows dots); fixed by rejecting `.` and `..` explicitly
+
+### Tests performed
+- 11-case REPL test: valid URLs, trailing slash, `.git`, extra path, spaces, missing repo, wrong host, lookalike host, no scheme, empty string, `..`
+- First run: 10 of 11 behaved as expected
+
+### Remaining problems
+- Exception message is the same for every failure reason
+
+### Next task
+- Phase 3: GitHub API client (`httpx`, `SecretStr`, status-code handling)
